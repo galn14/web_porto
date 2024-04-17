@@ -17,8 +17,8 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $project = Project::all();
-        return view('dashboard.project.index', compact('project'));
+        $projects = Project::all(); // Fetch all projects
+        return view('dashboard.project.index')->with('projects', @$projects);
     }
 
     public function create()
@@ -27,23 +27,21 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request)
-    {
+{
     $request->validate([
         'title' => 'required',
         'company' => 'required',
         'start_date' => 'required',
         'description' => 'required',
-        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'  // Validate each image
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'  // Corrected to single image handling
     ]);
 
-    $imageNames = [];
-    if ($request->hasFile('images')) {
-        foreach ($request->file('images') as $imageFile) {
-            $imageExtension = $imageFile->extension();
-            $imageName = date('ymdhis') . uniqid() . ".$imageExtension";  // Generating a unique file name
-            $imageFile->move(public_path('fotoproject'), $imageName);  // Move each file to project-specific directory
-            $imageNames[] = $imageName;
-        }
+    $imageName = null;
+    if ($request->hasFile('image')) {
+        $imageFile = $request->file('image');
+        $imageExtension = $imageFile->extension();
+        $imageName = date('ymdhis') . uniqid() . ".$imageExtension";  // Generating a unique file name
+        $imageFile->move(public_path('fotoproject'), $imageName);  // Move the file to the project-specific directory
     }
 
     $project = Project::create([
@@ -53,63 +51,64 @@ class ProjectController extends Controller
         'start_date' => $request->start_date,
         'end_date' => $request->end_date,
         'description' => $request->description,
-        'images' => json_encode($imageNames)  // Store images as a JSON encoded array
+        'image' => $imageName  // Storing a single image name
     ]);
 
-    return redirect()->route('project.index')->with('success', 'Project added successfully');
+    return redirect()->route('projects.index')->with('success', 'Project added successfully');
 }
 
 
-    public function edit(string $id)
+    public function edit($id)
     {
-        $project = Project::where('id', $id)->where('type', $this->_type)->first();
-        return view('dashboard.project.edit')->with('project', $project);
+        $project = Project::find($id);
+        if (!$project) {
+            return redirect()->route('projects.index')->with('error', 'Project not found.');
+        }
+        return view('dashboard.project.edit', compact('project'));
     }
 
-    public function update(Request $request, string $id)
-{
-    $request->validate([
-        'title' => 'required',
-        'company' => 'required',
-        'start_date' => 'required|date',
-        'description' => 'required',
-        'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
-    ]);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'company' => 'required',
+            'start_date' => 'required|date',
+            'description' => 'required',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
 
-    $project = Project::find($id);
-    if (!$project) {
-        return redirect()->route('project.index')->with('error', 'Project not found.');
-    }
-
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        $oldImage = $project->image;
-        if ($oldImage && File::exists(public_path('fotoproject/' . $oldImage))) {
-            File::delete(public_path('fotoproject/' . $oldImage));
+        $project = Project::find($id);
+        if (!$project) {
+            return redirect()->route('projects.index')->with('error', 'Project not found.');
         }
 
-        $imageFile = $request->file('image');
-        $imageExtension = $imageFile->extension();
-        $imageName = date('ymdhis') . ".$imageExtension"; // Generating unique file name
-        $imageFile->move(public_path('fotoproject'), $imageName); // Move file to project-specific directory
-        $project->image = $imageName;  // Update the image path to new image
+        if ($request->hasFile('image')) {
+            $oldImage = $project->image;
+            if ($oldImage && File::exists(public_path('fotoproject/' . $oldImage))) {
+                File::delete(public_path('fotoproject/' . $oldImage));
+            }
+
+            $imageFile = $request->file('image');
+            $imageExtension = $imageFile->extension();
+            $imageName = date('ymdhis') . ".$imageExtension";
+            $imageFile->move(public_path('fotoproject'), $imageName);
+            $project->image = $imageName;
+        }
+
+        $project->update([
+            'title' => $request->title,
+            'company' => $request->company,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date, // Handle nullable end_date
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('projects.index')->with('success', 'Project updated successfully');
     }
 
-    // Update the project's fields
-    $project->update([
-        'title' => $request->input('title'),
-        'company' => $request->input('company'),
-        'start_date' => $request->input('start_date'),
-        'end_date' => $request->input('end_date', null), // Handle nullable end_date
-        'description' => $request->input('description')
-    ]);
-
-    return redirect()->route('project.index')->with('success', 'Project updated successfully');
-}
-
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $project = Project::where('id', $id)->where('type', $this->_type)->first();
+        $project = Project::find($id);
         if ($project) {
             if ($project->image) {
                 File::delete(public_path('fotoproject') . "/" . $project->image);

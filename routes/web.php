@@ -30,7 +30,7 @@ Route::prefix('dashboard')->middleware('auth')->group(
         Route::resource('halaman', halamanController::class);
         Route::resource('experience', experienceController::class);
         Route::resource('education', educationController::class);
-        Route::resource('project', ProjectController::class);
+        Route::resource('projects', ProjectController::class); // This automatically assumes and sets up conventional route names
         Route::get('skill', [skillController::class, "index"])->name('skill.index');
         Route::post('skill', [skillController::class, "update"])->name('skill.update');
         Route::get('profile', [profileController::class, "index"])->name('profile.index');

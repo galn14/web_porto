@@ -100,7 +100,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('project.index')}}">
+            <a class="nav-link" href="{{ route('projects.index')}}">
               <i class="mdi mdi-file-document-box-outline menu-icon"></i>
               <span class="menu-title">project</span>
             </a>

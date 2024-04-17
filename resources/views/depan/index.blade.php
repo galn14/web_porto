@@ -96,66 +96,61 @@
                     </div>
                 </section>
                 <section class="reveal">
-                    <section id="project">
-                        <!-- Project content goes here -->
-                            <!-- Project Section-->
-                            <section id="project" class="py-5 bg-light">
-                                <div class="container px-5 mb-5">
-                                    <div class="text-center mb-5">
-                                        <h1 class="display-5 fw-bolder">Project</h1>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <!-- Carousel wrapper -->
-                                            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
-                                                <!-- Indicators -->
-                                                <div class="carousel-indicators">
-                                                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                                </div>
-                                                <!-- Slides -->
-                                                @foreach ($project as $item)
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img class="d-block w-100 rounded" src="{{ $project->image_url }}" alt="{{ $project->name }}">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>{{ $project->name }}</h5>
-                                                            <p>{{ $project->description }}</p>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/204080/6c757d" alt="Project Name 2">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Project Name 2</h5>
-                                                            <p>Brief description or context of Project 2.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/789040/6c757d" alt="Project Name 3">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Project Name 3</h5>
-                                                            <p>Brief description or context of Project 3.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Left and right controls -->
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </button>
-                                            </div>
-                                            <!-- End of Carousel wrapper -->
+                    <section id="projects" class="py-5 bg-light">
+                        <div class="container px-5 mb-5">
+                            <div class="text-center mb-5">
+                                <h1 class="display-5 fw-bolder">Projects</h1>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Carousel wrapper -->
+                                    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <!-- Indicators -->
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                         </div>
+                                        <!-- Slides -->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/343a40/6c757d" alt="Project Name 1">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Project Name 1</h5>
+                                                    <p>Brief description or context of Project 1.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/204080/6c757d" alt="Project Name 2">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Project Name 2</h5>
+                                                    <p>Brief description or context of Project 2.</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/789040/6c757d" alt="Project Name 3">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Project Name 3</h5>
+                                                    <p>Brief description or context of Project 3.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Left and right controls -->
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
+                                    <!-- End of Carousel wrapper -->
                                 </div>
-                            </section> 
-                </section>   
+                            </div>
+                        </div>
+                    </section>                    
+                </section>           
                 <section id="resume">
                     <!-- Resume content goes here -->
                         <!-- Page Content-->

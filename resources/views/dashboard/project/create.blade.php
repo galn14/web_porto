@@ -1,10 +1,10 @@
 @extends('dashboard.layout')
 
 @section('konten')
-    <div class="pb-3"><a href="{{ route('project.index') }}" class="btn btn-secondary">
+    <div class="pb-3"><a href="{{ route('projects.index') }}" class="btn btn-secondary">
         << kembali</a>
     </div>
-    <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -64,7 +64,7 @@
             <input 
                 type="file" 
                 class="form-control form-control-sm" 
-                name="image" 
+                name="image"  // Changed from 'images' to 'image'
                 id="image"
             >
         </div>

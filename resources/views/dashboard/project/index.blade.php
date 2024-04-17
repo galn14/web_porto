@@ -2,7 +2,7 @@
 
 @section('konten')
     <p class="card-title">project</p>
-    <div class="pb-3"><a href="{{ route('project.create') }}" class="btn btn-primary">+ Add Project</a></div>
+    <div class="pb-3"><a href="{{ route('projects.create') }}" class="btn btn-primary">+ Add Project</a></div>
     <div class="table-responsive">
         <table class="table table-stripped">
             <thead>
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 @php $i = 1; @endphp
-                @foreach ($project as $project)
+                @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->company }}</td>
@@ -26,10 +26,10 @@
                         // other columns
                         <!-- other table data -->
                         <td>
-                            <a href="{{ route('project.edit', $project->id) }}" 
+                            <a href="{{ route('projects.edit', $project->id) }}" 
                                class="btn btn-sm btn-warning">Edit</a>
                             <form onsubmit="return confirm('Are you sure?')"
-                                  action="{{ route('project.destroy', $project->id) }}" 
+                                  action="{{ route('projects.destroy', $project->id) }}" 
                                   class="d-inline" method="POST">
                                 @csrf
                                 @method('DELETE')

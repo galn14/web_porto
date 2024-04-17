@@ -2,7 +2,7 @@
 
 @section('konten')
 <div class="container mt-4">
-    <form action="{{ route('project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row justify-content-between">
