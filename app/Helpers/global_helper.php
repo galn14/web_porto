@@ -19,3 +19,21 @@ function set_about_nama($nama)
     $namaAwal = implode(" ", $arr);
     return $namaAwal . " " . $kataakhir2;
 }
+
+function set_list_workflow($sisi)
+{
+    $html = '';
+    $items = explode(', ', $sisi);
+
+    foreach ($items as $item) {
+        $cleanedItem = strip_tags($item); // Remove HTML tags from the item
+        $html .= '<div class="col mb-4 mb-md-0">';
+        $html .= '<div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">';
+        $html .= e($cleanedItem); // Use the 'e' function to escape the content for safety
+        $html .= '</div></div>';
+    }
+
+    return $html;
+}
+
+

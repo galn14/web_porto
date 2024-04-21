@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\halaman;
+use App\Models\Project;
 use App\Models\riwayat;
 use Illuminate\Http\Request;
 

@@ -8,6 +8,7 @@
         "php": "^8.2",
         "doctrine/dbal": "^4.0",
         "google/apiclient": "^2.15",
+        "intervention/image": "^3.6",
         "laravel/framework": "^11.0",
         "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.9"

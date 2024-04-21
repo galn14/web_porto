@@ -19,6 +19,8 @@
         <!-- In your head tag -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
 
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -35,44 +37,37 @@
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#skill">Skill</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <!-- Header-->
-                <header class="py-5" data-aos="fade-in" data-aos-duration="1000">
+                <!-- Header-->
+                <header class="py-5" data-aos="fade-in" data-aos-duration="1000" style="min-height: 100vh; display: flex; align-items: center;">
                     <div class="container px-5 pb-5">
                         <div class="row gx-5 align-items-center">
-                            <div class="col-xxl-5">
-                                <!-- Header text content with AOS-->
-                                <div class="text-center text-xxl-start">
-                                    <div class="badge text-gradient bg-gradient-primary-to-secondary mb-4" data-aos="fade-right" data-aos-delay="200">
-                                        <div class="text-uppercase">Computer Science Student</div>
-                                    </div>
-                                    <h1 class="display-5 fw-bolder mb-2" data-aos="fade-left" data-aos-delay="300">
-                                        <span class="text-gradient d-inline">{{ $about->judul }}</span>
-                                    </h1>
-                                    <div class="fs-10 fw-light text-muted mb-4" data-aos="fade-up" data-aos-delay="400">{!! $about->isi !!}</div>
-                                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3" data-aos="zoom-in" data-aos-delay="500">
-                                        <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#resume">Resume</a>
-                                        <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="#project">Project</a>
-                                    </div>
-                                    <div class="d-flex justify-content-left fs-2 gap-5" data-aos="fade-up">
-                                        <a class="text-gradient" href="#"><i class="bi bi-twitter"></i></a>
-                                        <a class="text-gradient" href="#"><i class="bi bi-linkedin"></i></a>
-                                        <a class="text-gradient" href="#"><i class="bi bi-github"></i></a>
-                                    </div>
+                            <!-- Text Content -->
+                            <div class="col-lg-5 text-center text-lg-start">
+                                <div class="badge mb-4" data-aos="fade-right" data-aos-delay="200">
+                                    <span class="text-uppercase text-gradient">Computer Science Student</span>
+                                </div>
+                                <h1 class="display-5 fw-bolder text-gradient mb-2" data-aos="fade-left" data-aos-delay="300">
+                                    {{ $about->judul }}
+                                </h1>
+                                <p class="fs-5 fw-light text-muted mb-4" data-aos="fade-up" data-aos-delay="400">{!! $about->isi !!}</p>
+                               
+                                <div class="d-flex justify-content-center justify-content-lg-start fs-2 gap-5" data-aos="fade-up">
+                                    <a class="text-gradient" href="https://www.instagram.com/galeno_f.a/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                                    <a class="text-gradient" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    <a class="text-gradient" href="https://github.com/galn14 " aria-label="GitHub"><i class="bi bi-github"></i></a>
                                 </div>
                             </div>
-                            <div class="col-xxl-7" data-aos="fade-left" data-aos-delay="600">
-                                <!-- Header profile picture-->
-                                <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                                    <div class="profile bg-gradient-primary-to-secondary">
-                                        <img class="profile-img" src="{{ asset('foto') . '/' . get_meta_value('_foto')}}" alt="Profile Image">
-                                        </div>
-                                    </div>
+                            <!-- Profile Picture -->
+                            <div class="col-lg-7 d-flex justify-content-center" data-aos="fade-left" data-aos-delay="600">
+                                <div class="profile bg-gradient-primary-to-secondary">
+                                    <img class="profile-img" src="{{ asset('foto') . '/' . get_meta_value('_foto')}}" alt="Profile Image">
                                 </div>
                             </div>
                         </div>
@@ -95,62 +90,6 @@
                         </div>
                     </div>
                 </section>
-                <section class="reveal">
-                    <section id="projects" class="py-5 bg-light">
-                        <div class="container px-5 mb-5">
-                            <div class="text-center mb-5">
-                                <h1 class="display-5 fw-bolder">Projects</h1>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Carousel wrapper -->
-                                    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
-                                        <!-- Indicators -->
-                                        <div class="carousel-indicators">
-                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                            <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        </div>
-                                        <!-- Slides -->
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/343a40/6c757d" alt="Project Name 1">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Project Name 1</h5>
-                                                    <p>Brief description or context of Project 1.</p>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/204080/6c757d" alt="Project Name 2">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Project Name 2</h5>
-                                                    <p>Brief description or context of Project 2.</p>
-                                                </div>
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100 rounded" src="https://dummyimage.com/900x500/789040/6c757d" alt="Project Name 3">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    <h5>Project Name 3</h5>
-                                                    <p>Brief description or context of Project 3.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Left and right controls -->
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                    <!-- End of Carousel wrapper -->
-                                </div>
-                            </div>
-                        </div>
-                    </section>                    
-                </section>           
                 <section id="resume">
                     <!-- Resume content goes here -->
                         <!-- Page Content-->
@@ -202,9 +141,7 @@
                                                                 <div class="small text-muted"> {{ $item->info1 }}</div>
                                                             </div>
                                                             <div class="fst-italic">
-                                                                <div class="small text-muted">{{ $item->info2 }}'s</div>
-                                                                <div class="small text-muted">{{ $item->info3 }}</div>
-                                                            </div>
+                                                                <div class="small text-muted">{{ $item->info2 }}</div>                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,77 +151,85 @@
                                     </section>
                                     </section>
                                     <!-- Divider-->
-                                    <section class="reveal">
-                                    <div class="pb-5"></div>
-                                    <!-- Skills Section-->
-                                    <section>
-                                        <!-- Skillset Card-->
-                                        <div class="card shadow border-0 rounded-4 mb-5">
-                                            <div class="card-body p-5">
-                                                <!-- Professional skills list-->
-                                                <div class="mb-5">
-                                                    <div class="d-flex align-items-center mb-4">
-                                                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                                        <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
-                                                    </div>
-                                                    <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SEO/SEM Marketing</div></div>
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Statistical Analysis</div></div>
-                                                        <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Web Development</div></div>
-                                                    </div>
-                                                    <div class="row row-cols-1 row-cols-md-3">
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Network Security</div></div>
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Adobe Software Suite</div></div>
-                                                        <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">User Interface Design</div></div>
-                                                    </div>
-                                                </div>
-                                                <!-- Languages list-->
-                                                <div class="mb-0">
-                                                    <div class="d-flex align-items-center mb-4">
-                                                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                                        <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
-                                                    </div>
-                                                    <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
-                                                        <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>
-                                                    </div>
-                                                    <div class="row row-cols-1 row-cols-md-3">
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                                                        <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>
-                                                        <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    </section>
                                 </div>
                             </div>
                         </div>
                     </main>
                 </section>
-                       
-            <section id="contact">
-                <!-- Contact content goes here -->
-            </main>
+                <section class="reveal">
+                <section id="skill">
+                    <div class="pb-5"></div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <section>
+                                <!-- Skillset Card-->
+                                <div class="card shadow border-0 rounded-4 mb-5">
+                                    <div class="card-body p-5">
+                                        <ul class="list-inline">
+                                        <!-- Professional skills list-->
+                                        <div class="mb-5">
+                                            <div class="d-flex align-items-center mb-4">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
+                                                <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
+                                            </div>
+                                            <!-- Set a new row for each set of skills -->
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-4">
+                                                {!! set_list_workflow(get_meta_value('_workflow')) !!}
+                                            </div>
+                                        </div>
+                                       <!-- Languages list-->
+                                        <div class="mb-0">
+                                            <div class="d-flex align-items-center mb-4">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                    <i class="bi bi-code-slash"></i>
+                                                </div>
+                                                <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
+                                            </div>
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+                                                <!-- Dynamic creation of language icons -->
+                                                @foreach (explode(', ', get_meta_value('_language')) as $item)
+                                                    <div class="col text-center">
+                                                        <i class="devicon-{{ strtolower($item) }}-plain" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+                <section id="contact">
+                    <!-- Contact Section -->
+                    <section id="contact" class="py-5" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="container px-5">
+                            <div class="row gx-5 justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="text-center my-5">
+                                        <h2 class="display-5 fw-bolder text-gradient" data-aos="zoom-in">Let's Connect</h2>
+                                        <p class="lead fw-light text-muted mb-5" data-aos="fade-right">I'm always open to discuss your project and talk about new technologies or creative ideas.</p>
+                                        <div class="d-grid gap-3">
+                                            <a class="btn btn-primary btn-lg" href="mailto:your.email@example.com" data-aos="zoom-in" data-aos-delay="300">galenofilberto@gmail.com</a>
+                                        </div>
+                                        <p class="fs-5 mt-4 text-muted" data-aos="fade-up" data-aos-delay="400">Feel free to drop me an email or follow me on social media.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    </section>
+    </body>
             <!-- Footer-->
             <footer class="bg-white py-4 mt-auto">
                 <div class="container px-5">
                     <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                         <div class="col-auto"><div class="small m-0">Copyright &copy; galn14 2023</div></div>
                         <div class="col-auto">
-                            <a class="small" href="#!">Privacy</a>
-                            <span class="mx-1">&middot;</span>
-                            <a class="small" href="#!">Terms</a>
-                            <span class="mx-1">&middot;</span>
-                            <a class="small" href="#!">Contact</a>
                         </div>
                     </div>
                 </div>
             </footer>
-        </section>
-            
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
