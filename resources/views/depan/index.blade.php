@@ -60,7 +60,7 @@
                                
                                 <div class="d-flex justify-content-center justify-content-lg-start fs-2 gap-5" data-aos="fade-up">
                                     <a class="text-gradient" href="https://www.instagram.com/galeno_f.a/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                                    <a class="text-gradient" href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                    <a class="text-gradient" href="https://www.linkedin.com/in/galenofilberto?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                                     <a class="text-gradient" href="https://github.com/galn14 " aria-label="GitHub"><i class="bi bi-github"></i></a>
                                 </div>
                             </div>
@@ -82,8 +82,7 @@
                                     <h2 class="display-5 fw-bolder" data-aos="zoom-in">
                                         <span class="text-gradient d-inline">{{$interest->judul}}</span>
                                     </h2>
-                                    <p class="lead fw-light mb-4" data-aos="fade-right">{!! $interest->isi !!}</p>
-                                    <p class="text-muted" data-aos="fade-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
+                                    <p class="text-muted" data-aos="fade-left">{!! $interest->isi !!}</p>
                                     
                                 </div>
                             </div>
@@ -189,7 +188,7 @@
                                                 <!-- Dynamic creation of language icons -->
                                                 @foreach (explode(', ', get_meta_value('_language')) as $item)
                                                     <div class="col text-center">
-                                                        <i class="devicon-{{ strtolower($item) }}-plain" style="font-size: 3rem;"></i>
+                                                        <i class="devicon-{{ strtolower($item) }}-plain colored" style="font-size: 3rem;"></i>
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -208,7 +207,8 @@
                                 <div class="col-lg-8">
                                     <div class="text-center my-5">
                                         <h2 class="display-5 fw-bolder text-gradient" data-aos="zoom-in">Let's Connect</h2>
-                                        <p class="lead fw-light text-muted mb-5" data-aos="fade-right">I'm always open to discuss your project and talk about new technologies or creative ideas.</p>
+                                        <p class="lead fw-light text-muted mb-5" data-aos="fade-right">I am always open to discussing your projects and talking about new technologies or creative ideas.
+                                        </p>
                                         <div class="d-grid gap-3">
                                             <a class="btn btn-primary btn-lg" href="mailto:your.email@example.com" data-aos="zoom-in" data-aos-delay="300">galenofilberto@gmail.com</a>
                                         </div>
@@ -220,16 +220,19 @@
                     </section>
                     </section>
     </body>
-            <!-- Footer-->
+            <!-- Footer -->
             <footer class="bg-white py-4 mt-auto">
                 <div class="container px-5">
-                    <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                        <div class="col-auto"><div class="small m-0">Copyright &copy; galn14 2023</div></div>
-                        <div class="col-auto">
+                    <div class="row justify-content-center">
+                        <div class="col-auto text-center">
+                            <div class="small m-0">
+                                Copyright &copy; galn14 2023. All rights reserved.
+                            </div>
                         </div>
                     </div>
                 </div>
             </footer>
+
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
